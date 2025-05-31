@@ -1,13 +1,15 @@
-from AsteroidsGame.circleshape import CircleShape
-from AsteroidsGame.constants import PLAYER_RADIUS
+from constants import *
+from circleshape import *
 import pygame
 
 class Player(CircleShape): 
     def __init__(self, x, y ):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
+        
     def draw(self, screen):
-        pass
+        #takes object, color, list of points, width as arguments 
+        figure = pygame.draw.polygon(screen, "white", self.triangle(), 2) 
         
     # in the player class
     def triangle(self):
