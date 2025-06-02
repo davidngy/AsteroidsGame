@@ -47,7 +47,6 @@ class Player(CircleShape):
         self.position += forward * PLAYER_SPEED * dt
 
     def shoot(self):
-        
         if self.timer > 0:
             print("cooldown!")
         else:
