@@ -1,4 +1,6 @@
+from asteroid import *
 from player import *
+from asteroidfield import *
 from player import Player
 from constants import *
 from turtledemo.penrose import draw
@@ -12,7 +14,15 @@ def main():
     
     updateable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    
+    
+    
     Player.containers = (updateable, drawable)
+    asteroids = pygame.sprite.Group()
+    Asteroid.containers = (asteroids, updateable, drawable)
+    AsteroidField.containers = updateable
+    
+    asteroid_field = AsteroidField()
     player = Player(SCREEN_WIDTH / 2 ,SCREEN_HEIGHT / 2)
     dt = 0  
     
