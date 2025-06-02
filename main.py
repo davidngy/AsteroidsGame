@@ -5,6 +5,7 @@ from player import Player
 from constants import *
 from turtledemo.penrose import draw
 import pygame
+import sys
 from operator import contains
 
 def main():
@@ -22,6 +23,7 @@ def main():
     Asteroid.containers = (asteroids, updateable, drawable)
     AsteroidField.containers = updateable
     
+    
     asteroid_field = AsteroidField()
     player = Player(SCREEN_WIDTH / 2 ,SCREEN_HEIGHT / 2)
     dt = 0  
@@ -33,6 +35,12 @@ def main():
                 
         
         updateable.update(dt)
+        
+        for asteroid in asteroids:
+            collide = asteroid.collision(player)
+            if collide:
+                print("Game over!")
+                sys.exit()
        
         for drawable_element in drawable:
             drawable_element.draw(screen)
